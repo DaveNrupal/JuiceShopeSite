@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Orders</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Juice Shop</h1>
+    </header>
+    <nav>
+        <a href="/orderPage">Order Juice</a>
+        <% if(isAdmin) { %><a href="/allOrders">All Orders</a> <% } %>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <div class="container" id="view-orders">
+        <h1>All Orders</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mango Juices</th>
+                <th>Berry Juices</th>
+                <th>Apple Juices</th>
+                <th>Sub Total</th>
+                <th>Tax</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% orders.forEach(order => { %>
+            <tr>
+                <td><%= order.name %></td>
+                <td><%= order.mangoJuices %></td>
+                <td><%= order.berryJuices %></td>
+                <td><%= order.appleJuices %></td>
+                <td>$<%= order.subTotal %></td>
+                <td>$<%= order.tax %></td>
+                <td>$<%= order.total %></td>
+                <td>
+                    <form action="/orders/<%= order._id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    </div>
+    <footer>
+        <address>
+            <p>
+                &copy; Nrupal Dave - 9018590
+            </p>
+        </address>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Juice Shop</h1>
+    </header>
+    <nav>
+        <a href="/orderPage">Order Juice</a>
+        <% if(isAdmin) { %><a href="/allOrders">All Orders</a> <% } %>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <div class="container" id="order-form">
+        <h1>Place Your Order</h1>
+        <form method="post" action="placeOrder">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter Your Name">
+
+            <label for="mango-quantity">Mango Juices</label>
+            <input type="text" id="mango-quantity" name="mangoJuices" placeholder="Quantity">
+
+            <label for="berry-quantity">Berry Juices</label>
+            <input type="text" id="berry-quantity"  name="berryJuices" placeholder="Quantity">
+
+            <label for="apple-quantity">Apple Juices</label>
+            <input type="text" id="apple-quantity" name="appleJuices" placeholder="Quantity">
+
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+    <footer>
+        <address>
+            <p>
+                &copy; Nrupal Dave - 9018590
+            </p>
+        </address>
+    </footer>
+</body>
+</html>
